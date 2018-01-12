@@ -134,6 +134,7 @@ var confirmation = {
   hardware: String,
 
   wantsBusFrom: String,
+
   address: {
     name: String,
     line1: String,
@@ -143,6 +144,7 @@ var confirmation = {
     zip: String,
     country: String
   },
+  
   receipt: String,
 
   hostNeededFri: Boolean,

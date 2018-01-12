@@ -153,6 +153,7 @@
             <th>School</th>
             <th>Degree</th>
             <th>Grad</th>
+            <th>Bus</th>
             <th>V/S/A/C</th>
             <th></th>
           </tr>
@@ -168,9 +169,8 @@
             <td>{{user.email}}</td>
             <td>{{user.profile.school}}</td>
             <td>{{user.profile.degree}}</td>
-            <td class="collapsing">
-              {{user.profile.graduationYear}}
-            </td>
+            <td class="collapsing">{{user.profile.graduationYear}}</td>
+            <td>{{user.confirmation.wantsBusFrom}}</td>
             <td class="collapsing">
 
               <!-- Verified -->

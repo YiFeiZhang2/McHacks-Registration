@@ -290,6 +290,9 @@ angular.module('reg')
               },{
                 name: 'Team',
                 value: user.teamCode
+              },{
+                name: 'Wants Bus From',
+                value: user.confirmation.wantsBusFrom
               }
             ]
           }
