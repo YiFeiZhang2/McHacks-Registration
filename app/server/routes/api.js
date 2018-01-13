@@ -109,7 +109,7 @@ module.exports = function (router) {
             },
             function (error, response, body) {
               return res.status(500).send({
-                message: "Your error has been recorded, we'll get right on it!"
+                message: "Your error has been recorded, we'll get right on it!" + error
               });
             }
             );
