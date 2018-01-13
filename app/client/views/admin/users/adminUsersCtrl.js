@@ -244,6 +244,14 @@ angular.module('reg')
       }
 
       function generateSections(user){
+        var wantsbusfrom;
+        // Jank Warning
+        if (!user.status.confirmed) {
+          wantsbusfrom = "";
+        }
+        else {
+          wantsbusfrom = "" + user.confirmation.wantsBusFrom;
+        }
         return [
           {
               name: 'Info',
@@ -292,7 +300,7 @@ angular.module('reg')
                 value: user.teamCode
               },{
                 name: 'Wants Bus From',
-                value: user.confirmation.wantsBusFrom || ""
+                value: wantsbusfrom
               }
             ]
           }
