@@ -1,31 +1,31 @@
 // Load the dotfiles.
-require('dotenv').load({
-  silent: true
-});
+require('dotenv').load({silent: true});
 
-var express = require('express');
+var express         = require('express');
 
 // Middleware!
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
-var morgan = require('morgan');
+var bodyParser      = require('body-parser');
+var methodOverride  = require('method-override');
+var morgan          = require('morgan');
+var cookieParser    = require('cookie-parser');
 
-var mongoose = require('mongoose');
-var port = process.env.PORT || 3000;
-var database = process.env.DATABASE || process.env.MONGODB_URI || "mongodb://localhost:27017";
+// cors configuration
+var cors 			= require('./cors');
 
-var settingsConfig = require('./config/settings');
-var adminConfig = require('./config/admin');
+var mongoose        = require('mongoose');
+var port            = process.env.PORT || 3000;
+var database        = process.env.DATABASE || process.env.MONGODB_URI || "mongodb://localhost:27017";
 
-var app = express();
+var settingsConfig  = require('./config/settings');
+var adminConfig     = require('./config/admin');
+
+var app             = express();
 
 // Connect to mongodb
-mongoose.Promise = global.Promise;
-mongoose.connect(database, {
-    useMongoClient: true,
-});
+mongoose.connect(database);
 
 app.use(morgan('dev'));
+app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -40,14 +40,15 @@ app.use(express.static(__dirname + '/app/client'));
 
 var apiRouter = express.Router();
 require('./app/server/routes/api')(apiRouter);
-app.use('/api', apiRouter);
+app.use('/api', cors, apiRouter);
 
 var authRouter = express.Router();
 require('./app/server/routes/auth')(authRouter);
-app.use('/auth', authRouter);
+app.use('/auth', cors, authRouter);
 
 require('./app/server/routes')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
 console.log("App listening on port " + port);
+
