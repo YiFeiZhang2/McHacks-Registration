@@ -301,6 +301,10 @@ angular.module('reg')
               },{
                 name: 'Wants Bus From',
                 value: wantsbusfrom
+              },
+              {
+                name: 'Dietary Restriction',
+                value: user.profile.dietaryRestrictions
               }
             ]
           }
