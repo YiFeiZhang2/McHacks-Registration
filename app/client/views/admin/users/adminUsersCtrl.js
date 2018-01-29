@@ -252,6 +252,14 @@ angular.module('reg')
         else {
           wantsbusfrom = "" + user.confirmation.wantsBusFrom;
         }
+        var phoneNumber;
+        // Jank Warning
+        if (!user.status.confirmed) {
+          phoneNumber = "";
+        }
+        else {
+          phoneNumber = "" + user.confirmation.phoneNumber;
+        }
         return [
           {
               name: 'Info',
@@ -300,7 +308,7 @@ angular.module('reg')
                 value: user.teamCode
               },{
                 name: 'Phone',
-                value: user.confirmation.phoneNumber
+                value: phoneNumber
               },{
                 name: 'MLH',
                 value: user.profile.mlhshareinfo
