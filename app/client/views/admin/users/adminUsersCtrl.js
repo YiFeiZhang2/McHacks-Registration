@@ -300,10 +300,10 @@ angular.module('reg')
                 value: user.teamCode
               },{
                 name: 'Phone',
-                value: confirmation.phoneNumber
+                value: user.confirmation.phoneNumber
               },{
                 name: 'MLH',
-                value: profile.mlhshareinfo
+                value: user.profile.mlhshareinfo
               },{
                 name: 'Wants Bus From',
                 value: wantsbusfrom
