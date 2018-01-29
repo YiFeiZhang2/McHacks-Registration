@@ -300,12 +300,14 @@ angular.module('reg')
                 value: user.teamCode
               },{
                 name: 'Phone',
-                value: confirmButtonColor.phoneNumber
+                value: confirmation.phoneNumber
+              },{
+                name: 'MLH',
+                value: profile.mlhshareinfo
               },{
                 name: 'Wants Bus From',
                 value: wantsbusfrom
-              },
-              {
+              },{
                 name: 'Dietary Restriction',
                 value: user.profile.dietaryRestrictions
               }
