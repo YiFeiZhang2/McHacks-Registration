@@ -299,6 +299,9 @@ angular.module('reg')
                 name: 'Team',
                 value: user.teamCode
               },{
+                name: 'Phone',
+                value: confirmButtonColor.phoneNumber
+              },{
                 name: 'Wants Bus From',
                 value: wantsbusfrom
               },
